@@ -433,6 +433,26 @@
             animation: blink 0.7s step-end infinite;
         }
 
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000000; /* Matches bg-black */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #60A5FA; /* Matches blue-400 */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #A855F7; /* Matches purple-500 */
+        }
+        /* Firefox */
+        html {
+            scrollbar-width: thin;
+            scrollbar-color: #60A5FA #000000;
+        }
+
         .animation-delay-2000 { animation-delay: 2s; }
         .animation-delay-200 { animation-delay: 0.2s; }
         .animation-delay-400 { animation-delay: 0.4s; }
