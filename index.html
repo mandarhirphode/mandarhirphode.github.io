@@ -210,7 +210,7 @@
             <h2 class="text-4xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">My Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="bg-gray-950 p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-500 project-card">
-                    <img src="https://i.postimg.cc/V6833wVc/20250616-2311-EDA-Global-Terrorism-simple-compose-01jxwx7kdpetmbdjdd.jpg" alt="Global Terrorism Database EDA" class="w-full h-56 object-cover rounded-lg mb-4">
+                    <img src="https://i.postimg.cc/V6833wVc/20250616-2311-EDA-Global-Terrorism-simple-compose-01jxwx7kdpetmbdjdd22at3qeb.png" alt="Global Terrorism Database EDA" class="w-full h-56 object-cover rounded-lg mb-4">
                     <h3 class="text-2xl font-semibold mb-2">Global Terrorism Database EDA</h3>
                     <p class="text-gray-200 mb-4">Analyzed 180,000+ terrorist incidents (1970–2017) using Python to identify trends, tactics, and perpetrator profiles, enhancing counter-terrorism strategies and policy formulation.</p>
                     <a href="https://github.com/mandyhirphode/EDA_on_global_terrorism_data-" target="_blank" rel="noopener" class="text-blue-400 hover:underline">View Project</a>
@@ -275,9 +275,9 @@
                 <i class="fas fa-times"></i>
             </button>
             <h2 class="text-2xl font-bold mb-4 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">My Resume</h2>
-            <iframe src="https://docs.google.com/viewer?url=https://drive.google.com/uc?export=download&id=1oTvBxlGPYoLIdirqCGhryC9F9kxbuARC&embedded=true" class="w-full h-[60vh] min-h-[400px] max-h-[600px] rounded-lg mb-4" title="Mandar Hirphode Resume"></iframe>
+            <iframe src="https://mandyhirphode.github.io/resume.pdf" class="w-full h-[60vh] min-h-[400px] max-h-[600px] rounded-lg mb-4" title="Mandar Hirphode Resume"></iframe>
             <div class="text-center">
-                <a href="https://drive.google.com/uc?export=download&id=1oTvBxlGPYoLIdirqCGhryC9F9kxbuARC" target="_blank" rel="noopener" class="bg-blue-500 text-white px-6 py-3 rounded-full font-semibold text-base hover:bg-blue-600 transition duration-300">Download Resume</a>
+                <a href="https://mandyhirphode.github.io/resume.pdf" download class="bg-blue-500 text-white px-6 py-3 rounded-full font-semibold text-base hover:bg-blue-600 transition duration-300">Download Resume</a>
             </div>
         </div>
     </div>
@@ -305,7 +305,7 @@
         // Smooth scrolling and close mobile menu on link click
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                if (this.id !== 'resume-link') { // Exclude resume link from smooth scroll
+                if (this.id !== 'resume-link') {
                     e.preventDefault();
                     document.querySelector(this.getAttribute('href')).scrollIntoView({
                         behavior: 'smooth'
@@ -347,7 +347,6 @@
             });
         });
 
-        // Close modal on overlay click
         resumeModal.addEventListener('click', (e) => {
             if (e.target === resumeModal) {
                 gsap.to(modalContent, {
