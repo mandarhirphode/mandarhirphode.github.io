@@ -208,9 +208,9 @@
     <section id="projects" class="bg-black py-20">
         <div class="container mx-auto px-6">
             <h2 class="text-4xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">My Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="bg-gray-950 p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-500 project-card">
-                    <img src="https://i.postimg.cc/V6833wVc/20250616-2311-EDA-Global-Terrorism-simple-compose-01jxwx7kdpetmbdjdd22at3qeb.png" alt="Global Terrorism Database EDA" class="w-full h-56 object-cover rounded-lg mb-4">
+                    <img src="https://i.postimg.cc/V6833wVc/20250616-2311-EDA-Global-Terrorism-simple-compose-01jxwx7kdpetmbdjdd.jpg" alt="Global Terrorism Database EDA" class="w-full h-56 object-cover rounded-lg mb-4">
                     <h3 class="text-2xl font-semibold mb-2">Global Terrorism Database EDA</h3>
                     <p class="text-gray-200 mb-4">Analyzed 180,000+ terrorist incidents (1970–2017) using Python to identify trends, tactics, and perpetrator profiles, enhancing counter-terrorism strategies and policy formulation.</p>
                     <a href="https://github.com/mandyhirphode/EDA_on_global_terrorism_data-" target="_blank" rel="noopener" class="text-blue-400 hover:underline">View Project</a>
@@ -259,7 +259,7 @@
                 <a href="https://www.linkedin.com/in/mandar-hirphode" target="_blank" rel="noopener" class="text-blue-400 hover:underline">LinkedIn</a>
                 <a href="https://github.com/mandyhirphode" target="_blank" rel="noopener" class="text-blue-400 hover:underline">GitHub</a>
                 <a href="https://www.hackerrank.com/profile/mandarhirphode" target="_blank" rel="noopener" class="text-blue-400 hover:underline">HackerRank</a>
-                <a href="https://drive.google.com/uc?export=download&id=1oTvBxlGPYoLIdirqCGhryC9F9kxbuARC" target="_blank" rel="noopener" class="text-blue-400 hover:underline">Resume</a>
+                <a href="#" id="resume-link" class="text-blue-400 hover:underline">Resume</a>
             </div>
             <div class="flex flex-col items-center gap-4 mb-12">
                 <p class="text-blue-400"><i class="fas fa-phone mr-2"></i>+91 9420662327</p>
@@ -267,6 +267,20 @@
             </div>
         </div>
     </section>
+
+    <!-- Resume Modal -->
+    <div id="resume-modal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50">
+        <div class="bg-gray-950 p-6 rounded-lg shadow-lg w-full max-w-4xl relative border-4 border-gray-950 transform scale-95 opacity-0 modal-content">
+            <button id="close-modal" class="absolute top-4 right-4 text-white text-2xl hover:text-blue-400 transition duration-300" aria-label="Close resume modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2 class="text-2xl font-bold mb-4 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">My Resume</h2>
+            <iframe src="https://docs.google.com/viewer?url=https://drive.google.com/uc?export=download&id=1oTvBxlGPYoLIdirqCGhryC9F9kxbuARC&embedded=true" class="w-full h-[60vh] min-h-[400px] max-h-[600px] rounded-lg mb-4" title="Mandar Hirphode Resume"></iframe>
+            <div class="text-center">
+                <a href="https://drive.google.com/uc?export=download&id=1oTvBxlGPYoLIdirqCGhryC9F9kxbuARC" target="_blank" rel="noopener" class="bg-blue-500 text-white px-6 py-3 rounded-full font-semibold text-base hover:bg-blue-600 transition duration-300">Download Resume</a>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-black py-6">
@@ -291,10 +305,12 @@
         // Smooth scrolling and close mobile menu on link click
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                if (this.id !== 'resume-link') { // Exclude resume link from smooth scroll
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
                 if (!mobileMenu.classList.contains('hidden')) {
                     mobileMenu.classList.add('hidden');
                     mobileMenu.classList.add('translate-y-[-100%]');
@@ -303,6 +319,48 @@
                     menuToggle.querySelector('i').classList.remove('fa-times');
                 }
             });
+        });
+
+        // Resume Modal Toggle
+        const resumeLink = document.getElementById('resume-link');
+        const resumeModal = document.getElementById('resume-modal');
+        const closeModal = document.getElementById('close-modal');
+        const modalContent = resumeModal.querySelector('.modal-content');
+
+        resumeLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            resumeModal.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+            gsap.to(modalContent, { scale: 1, opacity: 1, duration: 0.3, ease: 'power2.out' });
+        });
+
+        closeModal.addEventListener('click', () => {
+            gsap.to(modalContent, {
+                scale: 0.95,
+                opacity: 0,
+                duration: 0.3,
+                ease: 'power2.in',
+                onComplete: () => {
+                    resumeModal.classList.add('hidden');
+                    document.body.classList.remove('overflow-hidden');
+                }
+            });
+        });
+
+        // Close modal on overlay click
+        resumeModal.addEventListener('click', (e) => {
+            if (e.target === resumeModal) {
+                gsap.to(modalContent, {
+                    scale: 0.95,
+                    opacity: 0,
+                    duration: 0.3,
+                    ease: 'power2.in',
+                    onComplete: () => {
+                        resumeModal.classList.add('hidden');
+                        document.body.classList.remove('overflow-hidden');
+                    }
+                });
+            }
         });
 
         // Typing Animation
