@@ -63,7 +63,7 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden sm:hidden bg-surface px-6 pt-4 pb-6 transform -translate-y-full transition-transform duration-300">
+        <div id="mobile-menu" class="hidden sm:hidden bg-surface px-6 pt-4 pb-6 hidden sm:hidden bg-surface px-6 pt-4 pb-6 transform -translate-y-full transition-transform duration-300">
             <ul class="flex flex-col space-y-4 text-center">
                 <li><a href="#home" class="hover:text-primaryLt transition text-lg">Home</a></li>
                 <li><a href="#skills" class="hover:text-primaryLt transition text-lg">Skills</a></li>
@@ -74,7 +74,7 @@
         </div>
     </nav>
 
-    <!-- ====================== HERO + ABOUT (Merged) ====================== -->
+    <!-- ====================== HERO + ABOUT ====================== -->
     <section id="home" class="relative min-h-screen flex items-center justify-center py-20 overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-secondary/10 to-accent/20 animate-pulse"></div>
         <canvas id="particle-canvas" class="absolute inset-0 opacity-50 pointer-events-none"></canvas>
@@ -239,6 +239,7 @@
                 My Projects
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- (project cards unchanged – same as previous version) -->
                 <div class="bg-bgCard p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-500 project-card">
                     <img src="https://i.postimg.cc/V6833wVc/20250616-2311-EDA-Global-Terrorism-simple-compose-01jxwx7kdpetmbdjdd22at3qeb.png" alt="Global Terrorism EDA" class="w-full h-56 object-cover rounded-lg mb-4">
                     <h3 class="text-2xl font-semibold mb-2">Global Terrorism Database EDA</h3>
@@ -249,7 +250,7 @@
                 <div class="bg-bgCard p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-500 project-card">
                     <img src="https://i.postimg.cc/hvfn1mqX/20250614-2004-Movie-Recommender-System-simple-compose-01jxqdrbn7e4evxcvf1cy9k9cn.png" alt="Movie Recommender" class="w-full h-56 object-cover rounded-lg mb-4">
                     <h3 class="text-2xl font-semibold mb-2">Movie Recommender System</h3>
-                    <p class="text-textMuted mb-4">Content-based system with Streamlit + TMDB API for real-time movie suggestions.</p>
+                    <p class="text-textMuted mb-4">Content-based system with Streamlit + TMDB API for real-time suggestions.</p>
                     <a href="https://github.com/mandarhirphode/movie_recommender_system" target="_blank" rel="noopener" class="text-primaryLt hover:underline">View Project</a>
                 </div>
 
@@ -314,13 +315,17 @@
             <h2 class="text-2xl font-bold mb-4 text-center bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                 My Resume
             </h2>
+
+            <!-- *** FIXED PREVIEW URL *** -->
             <iframe 
-                src="https://docs.google.com/viewer?url=https://drive.google.com/uc?export=download&id=1oTvBxlGPYoLIdirqCGhryC9F9kxbuARC&embedded=true" 
-                class="w-full h-[60vh] min-h-[400px] max-h-[600px] rounded-lg mb-4" 
-                title="Mandar Hirphode Resume">
+                src="https://drive.google.com/file/d/1oTvBxlGPYoLIdirqCGhryC9F9kxbuARC/preview"
+                class="w-full h-[60vh] min-h-[400px] max-h-[600px] rounded-lg mb-4"
+                title="Mandar Hirphode Resume"
+                allow="autoplay">
             </iframe>
+
             <div class="text-center">
-                <a href="https://drive.google.com/uc?export=download&id=1oTvBxlGPYoLIdirqCGhryC9F9kxbuARC" 
+                <a href="https://drive.google.com/uc?export=download&id=1oTvBxlGPYoLIdirqCGhryC9F9kxbuARC"
                    download class="bg-primary text-white px-6 py-3 rounded-full font-semibold hover:bg-primaryLt transition">
                     Download Resume
                 </a>
