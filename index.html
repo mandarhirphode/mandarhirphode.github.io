@@ -1,467 +1,405 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mandar Hirphode – Data Scientist & Data Analyst Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mandar Hirphode – Data Scientist & Data Analyst</title>
 
-    <!-- Tailwind CDN + Custom Palette -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: '#4F46E5',      // Indigo-600
-              primaryLt: '#6366F1',    // Indigo-500
-              secondary: '#7C3AED',    // Violet-600
-              accent: '#EC4899',       // Pink-500
-              bgDark: '#0F0F1A',
-              bgCard: '#1A1A2E',
-              surface: '#16213E',
-              textMuted: '#94A3B8',
-              textLight: '#E2E8F0'
-            },
-            fontFamily: { sans: ['Poppins', 'sans-serif'] },
-            screens: { xs: '320px' },
-            animation: { float: 'float 6s ease-in-out infinite' },
-            keyframes: {
-              float: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-20px)' } }
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#4F46E5',
+            primaryLt: '#6366F1',
+            secondary: '#7C3AED',
+            accent: '#EC4899',
+            bgDark: '#0F0F1A',
+            bgCard: '#1A1A2E',
+            surface: '#16213E',
+            textMuted: '#94A3B8',
+            textLight: '#E2E8F0'
+          },
+          fontFamily: { sans: ['Poppins', 'sans-serif'] },
+          screens: { xs: '320px' },
+          animation: { float: 'float 6s ease-in-out infinite' },
+          keyframes: {
+            float: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-20px)' } }
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- GSAP & Icons -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-bgDark text-textLight font-sans overflow-x-hidden">
+
+  <!-- NAV -->
+  <nav class="bg-surface sticky top-0 z-50 shadow">
+    <div class="container mx-auto px-6 flex justify-between items-center py-4">
+      <h1 class="text-2xl xs:text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Mandar Hirphode</h1>
+
+      <ul id="menu" class="hidden sm:flex space-x-6">
+        <li><a href="#home" class="hover:text-primaryLt transition">Home</a></li>
+        <li><a href="#skills" class="hover:text-primaryLt transition">Skills</a></li>
+        <li><a href="#experience" class="hover:text-primaryLt transition">Experience</a></li>
+        <li><a href="#projects" class="hover:text-primaryLt transition">Projects</a></li>
+        <li><a href="#contact" class="hover:text-primaryLt transition">Contact</a></li>
+      </ul>
+
+      <button id="menu-toggle" class="sm:hidden p-2 rounded text-textLight focus:outline-none" aria-label="Toggle menu">
+        <i id="menu-icon" class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden sm:hidden bg-surface px-6 pt-4 pb-6 transform -translate-y-full transition-transform duration-300">
+      <ul class="flex flex-col space-y-4 text-center">
+        <li><a href="#home" class="hover:text-primaryLt transition text-lg">Home</a></li>
+        <li><a href="#skills" class="hover:text-primaryLt transition text-lg">Skills</a></li>
+        <li><a href="#experience" class="hover:text-primaryLt transition text-lg">Experience</a></li>
+        <li><a href="#projects" class="hover:text-primaryLt transition text-lg">Projects</a></li>
+        <li><a href="#contact" class="hover:text-primaryLt transition text-lg">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" class="relative min-h-screen flex items-center justify-center py-20 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-primary/18 via-secondary/8 to-accent/12"></div>
+    <canvas id="particle-canvas" class="absolute inset-0 opacity-45 pointer-events-none"></canvas>
+
+    <div class="container mx-auto px-6 z-10">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <!-- Left -->
+        <div class="text-center md:text-left space-y-6">
+          <h1 class="text-4xl xs:text-5xl md:text-6xl font-bold leading-tight">
+            <span class="block text-gray-300">Hi, I'm</span>
+            <span class="block bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Mandar Hirphode</span>
+          </h1>
+
+          <p class="text-xl xs:text-2xl text-textMuted">
+            <span id="typed-text" class="inline-block border-r-2 border-primary pr-2"></span>
+          </p>
+
+          <p class="max-w-xl md:max-w-md text-textLight leading-relaxed">
+            I bring <strong>1+ years</strong> of professional experience across <strong>Data Analysis</strong> and <strong>Data Science</strong>.
+            I build reliable ETL/data models and dashboards to inform decisions, and create practical ML prototypes (regression / forecasting) that improve operations.
+            Tech: Python, SQL, Power BI, InfluxDB, SSIS basics, Flask/Streamlit.
+          </p>
+
+          <div class="flex gap-4 justify-center md:justify-start mt-4">
+            <a href="#contact" class="bg-primary text-white px-6 py-3 rounded-full font-semibold hover:bg-primaryLt transition">Let's Connect</a>
+            <a href="#" id="resume-link" class="border border-secondary text-secondary px-6 py-3 rounded-full font-semibold hover:bg-secondary hover:text-white transition">View Resume</a>
+          </div>
+        </div>
+
+        <!-- Right -->
+        <div class="flex flex-col items-center md:items-start space-y-8">
+          <div class="relative group">
+            <div class="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-full blur-lg opacity-60 group-hover:opacity-90 transition"></div>
+            <img src="https://i.postimg.cc/tR3G6RWG/id-photo.png" alt="Mandar Hirphode" class="relative w-64 h-64 xs:w-72 xs:h-72 rounded-full object-cover shadow-2xl border-4 border-surface animate-float">
+          </div>
+
+          <div class="bg-bgCard p-5 rounded-xl shadow-xl border border-surface max-w-sm w-full">
+            <h3 class="text-xl font-semibold text-primary mb-2">Selected outcomes</h3>
+            <ul class="text-sm text-textMuted space-y-2">
+              <li><strong>12% cost reduction</strong> — regression-based recommendations for load scheduling (analyst + model prototyping).</li>
+              <li><strong>15% penalty cut</strong> — short-term peak demand forecasting + operational suggestions.</li>
+              <li><strong>Real-time dashboards</strong> — ETL → InfluxDB → Grafana for live KPIs & alerts.</li>
+              <li><strong>Top 5 – AlmaBetter</strong> — SQL schema & performance tuning (reporting focus).</li>
+              <li><strong>Power BI reporting</strong> — stakeholder dashboards & scheduled insights.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="bg-bgDark py-16">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Skills</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-bgCard p-5 rounded-lg text-center">
+          <i class="fas fa-table text-3xl text-primary mb-2"></i>
+          <h4 class="font-semibold">SQL & Data Modeling</h4>
+          <p class="text-sm text-textMuted mt-1">ETL, schema design, query tuning</p>
+        </div>
+        <div class="bg-bgCard p-5 rounded-lg text-center">
+          <i class="fab fa-python text-3xl text-primary mb-2"></i>
+          <h4 class="font-semibold">Python</h4>
+          <p class="text-sm text-textMuted mt-1">Pandas, NumPy, scripting for ETL & modeling</p>
+        </div>
+        <div class="bg-bgCard p-5 rounded-lg text-center">
+          <i class="fas fa-chart-line text-3xl text-yellow-400 mb-2"></i>
+          <h4 class="font-semibold">Machine Learning</h4>
+          <p class="text-sm text-textMuted mt-1">Regression, forecasting, evaluation, prototypes</p>
+        </div>
+        <div class="bg-bgCard p-5 rounded-lg text-center">
+          <i class="fas fa-chart-bar text-3xl text-blue-500 mb-2"></i>
+          <h4 class="font-semibold">Power BI & Dashboards</h4>
+          <p class="text-sm text-textMuted mt-1">Reports, storytelling, scheduled refresh</p>
+        </div>
+        <div class="bg-bgCard p-5 rounded-lg text-center">
+          <i class="fas fa-server text-3xl text-primary mb-2"></i>
+          <h4 class="font-semibold">Real-time Monitoring</h4>
+          <p class="text-sm text-textMuted mt-1">InfluxDB, Grafana, streaming KPIs</p>
+        </div>
+        <div class="bg-bgCard p-5 rounded-lg text-center">
+          <i class="fas fa-code text-3xl text-green-400 mb-2"></i>
+          <h4 class="font-semibold">APIs & Deployment</h4>
+          <p class="text-sm text-textMuted mt-1">Flask/Streamlit, simple serving</p>
+        </div>
+        <div class="bg-bgCard p-5 rounded-lg text-center">
+          <i class="fab fa-windows text-3xl text-orange-400 mb-2"></i>
+          <h4 class="font-semibold">SSIS & MS Fabric</h4>
+          <p class="text-sm text-textMuted mt-1">Basic pipelines & Fabric concepts</p>
+        </div>
+        <div class="bg-bgCard p-5 rounded-lg text-center">
+          <i class="fab fa-git-alt text-3xl text-orange-400 mb-2"></i>
+          <h4 class="font-semibold">Collaboration</h4>
+          <p class="text-sm text-textMuted mt-1">Git, documentation, stakeholder comms</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="bg-bgDark py-16">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Work Experience</h2>
+
+      <div class="space-y-6">
+        <!-- Integrated Active Monitoring -->
+        <div class="bg-bgCard p-6 rounded-lg shadow">
+          <h3 class="text-xl font-semibold">Data Analyst (primary) & ML Prototypes – Integrated Active Monitoring</h3>
+          <p class="text-textMuted mb-3">Pune · Jan 2024 – Present</p>
+          <ul class="list-disc list-inside text-textMuted space-y-1">
+            <li>Mainly worked as a <strong>Data Analyst</strong>: ETL flows, SQL data models and scheduled reports to support operations.</li>
+            <li>Built Power BI / Looker Studio dashboards used daily by ops and management.</li>
+            <li>Implemented telemetry pipelines and live dashboards (InfluxDB + Grafana) with alerting.</li>
+            <li>Created small ML demos (regression, short-term forecasting) to validate automations — prototypes handed to engineers for productionization.</li>
+            <li>Delivered data-backed recommendations that reduced costs and improved scheduling decisions.</li>
+          </ul>
+        </div>
+
+        <!-- RajYug -->
+        <div class="bg-bgCard p-6 rounded-lg shadow">
+          <h3 class="text-xl font-semibold">Data Science Intern – RajYug IT Solutions Pvt. Ltd.</h3>
+          <p class="text-textMuted mb-3">Pune · Sept 2024 – Dec 2024</p>
+          <ul class="list-disc list-inside text-textMuted space-y-1">
+            <li>Primarily focused on <strong>Power BI</strong> reporting and dashboarding for product teams.</li>
+            <li>Built scheduled ETL using <strong>SSIS</strong> and simple data pipelines to feed reports.</li>
+            <li>Developed and evaluated basic ML models (classification/regression) as prototypes to support product features.</li>
+            <li>Familiarity with Microsoft Fabric concepts and how Fabric integrates ETL, storage and BI workflows.</li>
+          </ul>
+        </div>
+
+        <!-- Ybi Foundation -->
+        <div class="bg-bgCard p-6 rounded-lg shadow">
+          <h3 class="text-xl font-semibold">Data Analyst Intern – Ybi Foundation</h3>
+          <p class="text-textMuted mb-3">Remote · May 2024 – July 2024</p>
+          <ul class="list-disc list-inside text-textMuted space-y-1">
+            <li>Data cleaning and preparation for program datasets using Pandas & SQL.</li>
+            <li>Built basic ML models (linear regression, clustering) for churn and segmentation projects.</li>
+            <li>Packaged results into dashboards and concise reports for program managers.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS (kept concise) -->
+  <section id="projects" class="bg-bgDark py-16">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Projects</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- project cards (unchanged links) -->
+        <div class="bg-bgCard p-5 rounded-lg shadow">
+          <img src="https://i.postimg.cc/V6833wVc/20250616-2311-EDA-Global-Terrorism-simple-compose-01jxwx7kdpetmbdjdd22at3qeb.png" alt="EDA" class="w-full h-44 object-cover rounded mb-3">
+          <h4 class="font-semibold">Global Terrorism DB — EDA & Reporting</h4>
+          <p class="text-sm text-textMuted mt-1">EDA, dashboards and derived metrics for trend analysis.</p>
+          <a href="https://github.com/mandyhirphode/EDA_on_global_terrorism_data-" class="text-primaryLt mt-2 inline-block">View Project</a>
+        </div>
+
+        <div class="bg-bgCard p-5 rounded-lg shadow">
+          <img src="https://i.postimg.cc/hvfn1mqX/20250614-2004-Movie-Recommender-System-simple-compose-01jxqdrbn7e4evxcvf1cy9k9cn.png" alt="Recommender" class="w-full h-44 object-cover rounded mb-3">
+          <h4 class="font-semibold">Movie Recommender — Prototype & Dashboard</h4>
+          <p class="text-sm text-textMuted mt-1">Streamlit prototype + A/B logging + dashboard to measure performance.</p>
+          <a href="https://github.com/mandyhirphode/movie_recommender_system" class="text-primaryLt mt-2 inline-block">View Project</a>
+        </div>
+
+        <div class="bg-bgCard p-5 rounded-lg shadow">
+          <img src="https://i.postimg.cc/RF0xvthg/20250614-2008-Amazon-Sales-Analysis-simple-compose-01jxqdwnrhe06845r42gw6ybnn.png" alt="Amazon Sales" class="w-full h-44 object-cover rounded mb-3">
+          <h4 class="font-semibold">Amazon Sales — Dashboards & Forecasts</h4>
+          <p class="text-sm text-textMuted mt-1">Power BI dashboards + short-term forecasting for planning.</p>
+          <a href="https://github.com/mandyhirphode/Amazon-Sales-Analysis-Dashboard" class="text-primaryLt mt-2 inline-block">View Project</a>
+        </div>
+
+        <!-- add more cards as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="bg-bgDark py-12">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Get in touch</h2>
+      <p class="text-textMuted mb-6">If you need clean analytics or practical ML prototypes — reach out.</p>
+      <div class="flex justify-center gap-6">
+        <a href="mailto:mandarhirphode@gmail.com" class="text-primaryLt">Email</a>
+        <a href="https://www.linkedin.com/in/mandar-hirphode" target="_blank" class="text-primaryLt">LinkedIn</a>
+        <a href="https://github.com/mandarhirphode" target="_blank" class="text-primaryLt">GitHub</a>
+      </div>
+      <div class="mt-6 text-textMuted">+91 9420662327 · Pune, Maharashtra, India</div>
+    </div>
+  </section>
+
+  <!-- RESUME MODAL -->
+  <div id="resume-modal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50">
+    <div class="bg-surface p-6 rounded-lg shadow-lg w-full max-w-3xl relative transform scale-95 opacity-0 modal-content">
+      <button id="close-modal" class="absolute top-3 right-3 text-textLight hover:text-primary"><i class="fas fa-times"></i></button>
+      <h3 class="text-lg font-bold text-center mb-4">My Resume</h3>
+      <iframe src="https://drive.google.com/file/d/14WgvYMFihv9O852dD6pLZJIDgXqHZavX/preview" class="w-full h-[60vh] rounded" title="Resume"></iframe>
+      <div class="text-center mt-4">
+        <a href="https://drive.google.com/uc?export=download&id=1oTvBxlGPYoLIdirqCGhryC9F9kxbuARC" class="bg-primary text-black px-4 py-2 rounded font-semibold">Download Resume</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-surface py-6 mt-8">
+    <div class="container mx-auto px-6 text-center text-textMuted">© 2025 Mandar Hirphode</div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Mobile menu toggle (clean)
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    menuToggle?.addEventListener('click', () => {
+      if (!mobileMenu) return;
+      mobileMenu.classList.toggle('hidden');
+      // animate icon
+      if (menuIcon) menuIcon.classList.toggle('fa-times');
+    });
+
+    // Smooth scroll except resume links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const href = a.getAttribute('href');
+        if (!href || href === '#') return;
+        if (href.includes('resume')) return; // skip modal open handler
+        e.preventDefault();
+        const el = document.querySelector(href);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
+          if (menuIcon) menuIcon.classList.remove('fa-times');
+        }
+      });
+    });
+
+    // Resume modal open/close
+    const resumeOpenEls = [document.getElementById('resume-link')];
+    const resumeModal = document.getElementById('resume-modal');
+    const closeModalBtn = document.getElementById('close-modal');
+    const modalContent = resumeModal?.querySelector('.modal-content');
+
+    resumeOpenEls.forEach(el => el?.addEventListener('click', e => {
+      e.preventDefault();
+      if (!resumeModal) return;
+      resumeModal.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+      if (modalContent) modalContent.style.transform = 'scale(1)', modalContent.style.opacity = '1';
+    }));
+
+    closeModalBtn?.addEventListener('click', () => {
+      if (!resumeModal) return;
+      resumeModal.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    });
+    resumeModal?.addEventListener('click', (e) => { if (e.target === resumeModal) closeModalBtn?.click(); });
+
+    // Typing animation (balanced)
+    class TypedText {
+      constructor(el, arr, typeSpeed=80, delSpeed=40, pause=1400){
+        this.el = el; this.arr = arr; this.ts = typeSpeed; this.ds = delSpeed; this.pause = pause;
+        this.idx=0; this.pos=0; this.del=false; this.run();
+      }
+      run(){
+        const txt = this.arr[this.idx];
+        if (this.del){
+          this.el.textContent = txt.substring(0, this.pos);
+          this.pos--;
+          if (this.pos < 0){ this.del=false; this.idx=(this.idx+1)%this.arr.length; setTimeout(()=>this.run(), 600); return; }
+          setTimeout(()=>this.run(), this.ds);
+        } else {
+          this.el.textContent = txt.substring(0, this.pos+1);
+          this.pos++;
+          if (this.pos === txt.length){ this.del=true; setTimeout(()=>this.run(), this.pause); return; }
+          setTimeout(()=>this.run(), this.ts);
+        }
+      }
+    }
+    new TypedText(document.getElementById('typed-text'), ['Data Analyst','Data Scientist','BI & Dashboarding','ML Prototyping','Real-time Monitoring']);
+
+    // Lightweight particle background
+    class Particles {
+      constructor(canvas){
+        this.canvas = canvas; this.ctx = canvas.getContext('2d'); this.p=[]; this.count = innerWidth < 640 ? 28 : 44;
+        this.resize(); window.addEventListener('resize', ()=>this.resize());
+        this.init(); this.animate();
+      }
+      resize(){ this.canvas.width = innerWidth; this.canvas.height = innerHeight; }
+      init(){
+        this.p = [];
+        for(let i=0;i<this.count;i++){
+          this.p.push({ x: Math.random()*this.canvas.width, y: Math.random()*this.canvas.height, vx:(Math.random()-0.5)*0.6, vy:(Math.random()-0.5)*0.6, r:1.6 });
+        }
+      }
+      animate(){
+        const ctx = this.ctx; ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
+        for(let i=0;i<this.p.length;i++){
+          const a=this.p[i];
+          a.x+=a.vx; a.y+=a.vy;
+          if(a.x<0||a.x>this.canvas.width) a.vx*=-1;
+          if(a.y<0||a.y>this.canvas.height) a.vy*=-1;
+          ctx.beginPath(); ctx.arc(a.x,a.y,a.r,0,Math.PI*2); ctx.fillStyle='rgba(79,70,229,0.8)'; ctx.fill();
+          for(let j=i+1;j<this.p.length;j++){
+            const b=this.p[j], dx=b.x-a.x, dy=b.y-a.y, d=Math.hypot(dx,dy);
+            if(d<120){
+              ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.strokeStyle=`rgba(124,58,237,${1-d/120})`; ctx.stroke();
             }
           }
         }
-      };
-    </script>
+        requestAnimationFrame(()=>this.animate());
+      }
+    }
+    const canvas = document.getElementById('particle-canvas');
+    if (canvas) new Particles(canvas);
 
-    <!-- GSAP & Icons -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
+    // GSAP subtle reveals
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.utils.toArray('.bg-bgCard, .bg-bgCard *').forEach(() => {});
+    gsap.from('.text-4xl', { opacity:0, y:10, duration:0.7, ease:'power2.out' });
+    gsap.from('img[alt="Mandar Hirphode"]', { scale:0.88, opacity:0, duration:0.9, delay:0.35, ease:'back.out(1.3)' });
+  </script>
 
-<body class="bg-bgDark text-textLight font-sans overflow-x-hidden">
-
-    <!-- ====================== NAV ====================== -->
-    <nav class="bg-surface sticky top-0 z-50 shadow-lg">
-        <div class="container mx-auto px-6 flex justify-between items-center py-4">
-            <h1 class="text-2xl xs:text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Mandar Hirphode
-            </h1>
-
-            <button id="menu-toggle" class="sm:hidden text-textLight focus:outline-none" aria-label="Toggle menu">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
-
-            <ul id="menu" class="hidden sm:flex space-x-6">
-                <li><a href="#home" class="hover:text-primaryLt transition">Home</a></li>
-                <li><a href="#skills" class="hover:text-primaryLt transition">Skills</a></li>
-                <li><a href="#experience" class="hover:text-primaryLt transition">Experience</a></li>
-                <li><a href="#projects" class="hover:text-primaryLt transition">Projects</a></li>
-                <li><a href="#contact" class="hover:text-primaryLt transition">Contact</a></li>
-            </ul>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden sm:hidden bg-surface px-6 pt-4 pb-6 transform -translate-y-full transition-transform duration-300">
-            <ul class="flex flex-col space-y-4 text-center">
-                <li><a href="#home" class="hover:text-primaryLt transition text-lg">Home</a></li>
-                <li><a href="#skills" class="hover:text-primaryLt transition text-lg">Skills</a></li>
-                <li><a href="#experience" class="hover:text-primaryLt transition text-lg">Experience</a></li>
-                <li><a href="#projects" class="hover:text-primaryLt transition text-lg">Projects</a></li>
-                <li><a href="#contact" class="hover:text-primaryLt transition text-lg">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- ====================== HERO + ABOUT ====================== -->
-    <section id="home" class="relative min-h-screen flex items-center justify-center py-20 overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-secondary/10 to-accent/20 animate-pulse"></div>
-        <canvas id="particle-canvas" class="absolute inset-0 opacity-50 pointer-events-none"></canvas>
-
-        <div class="container mx-auto px-6 z-10">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-
-                <!-- LEFT: Text & CTA -->
-                <div class="text-center md:text-left space-y-6">
-                    <h1 class="text-4xl xs:text-5xl md:text-7xl font-bold leading-tight">
-                        <span class="block opacity-0 animate-fade-in">Hi, I'm</span>
-                        <span class="block bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent animate-fade-in">
-                            Mandar Hirphode
-                        </span>
-                    </h1>
-
-                    <!-- Balanced typed roles (equal emphasis on Analyst + DS/ML) -->
-                    <p class="text-xl xs:text-2xl text-textMuted">
-                        <span id="typed-text" class="inline-block border-r-2 border-primary animate-blink"></span>
-                    </p>
-
-                    <!-- Revised elevator pitch: 1+ year experience, balanced DA & DS -->
-                    <p class="max-w-xl mx-auto md:mx-0 text-textLight leading-relaxed">
-                        I have <strong>1+ years of professional experience</strong> working at the intersection of **data analysis** and **data science**. 
-                        I deliver reliable analytics (ETL pipelines, SQL, dashboards, reporting) and also craft prototype ML solutions (regression & forecasting) that drive decisions.
-                        My work focuses on turning raw telemetry into clear business insights and production-ready prototypes using Python, SQL, Power BI, InfluxDB and lightweight model serving.
-                    </p>
-
-                    <div class="flex flex-col xs:flex-row gap-4 justify-center md:justify-start">
-                        <a href="#contact" class="bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-primaryLt transition transform hover:scale-105">
-                            Let's Connect
-                        </a>
-                        <a href="#" id="resume-link" class="border border-secondary text-secondary px-8 py-3 rounded-full font-semibold hover:bg-secondary hover:text-white transition transform hover:scale-105">
-                            View Resume
-                        </a>
-                    </div>
-                </div>
-
-                <!-- RIGHT: Photo + Highlights (emphasize analyst work alongside ML) -->
-                <div class="flex flex-col items-center md:items-start space-y-8">
-                    <div class="relative group">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-full blur-lg opacity-60 group-hover:opacity-90 transition"></div>
-                        <img src="https://i.postimg.cc/tR3G6RWG/id-photo.png" alt="Mandar Hirphode"
-                             class="relative w-64 h-64 xs:w-72 xs:h-72 rounded-full object-cover shadow-2xl border-4 border-surface animate-float">
-                    </div>
-
-                    <div class="bg-bgCard p-6 rounded-xl shadow-xl border border-surface max-w-sm w-full">
-                        <h3 class="text-xl font-bold text-primary mb-3">Selected Achievements</h3>
-                        <ul class="space-y-2 text-sm text-textMuted">
-                            <li><strong>12% operational cost reduction</strong> — regression-based savings analysis and prioritised recommendations for load management.</li>
-                            <li><strong>15% penalty reduction</strong> — short-term peak demand forecasting plus schedule suggestions for operations.</li>
-                            <li><strong>Real-time analytics pipelines</strong> — ETL and dashboards using InfluxDB & Grafana to track live KPIs.</li>
-                            <li><strong>Top 5 • AlmaBetter</strong> — SQL architecture, schema design and performance optimisation.</li>
-                            <li><strong>Dashboarding & stakeholder reporting</strong> — Power BI / Looker Studio dashboards for ops and product decisions.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Animated Blobs -->
-        <div class="absolute inset-0 pointer-events-none">
-            <div class="absolute w-80 h-80 bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob top-10 left-10"></div>
-            <div class="absolute w-80 h-80 bg-secondary rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000 bottom-10 right-10"></div>
-        </div>
-    </section>
-
-    <!-- ====================== SKILLS ====================== -->
-    <section id="skills" class="bg-bgDark py-20">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                My Skills
-            </h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <!-- emphasize analyst & visualization skills alongside ML -->
-                <div class="bg-bgCard p-6 rounded-lg text-center shadow-lg hover:bg-primary/10 transition transform hover:scale-105">
-                    <i class="fas fa-table text-4xl text-primary mb-4"></i>
-                    <h3 class="text-xl font-semibold">SQL & Data Modeling</h3>
-                    <p class="text-textMuted text-sm mt-2">ETL, schema design, query optimization</p>
-                </div>
-                <div class="bg-bgCard p-6 rounded-lg text-center shadow-lg hover:bg-primary/10 transition transform hover:scale-105">
-                    <i class="fab fa-python text-4xl text-primary mb-4"></i>
-                    <h3 class="text-xl font-semibold">Python & Scripting</h3>
-                    <p class="text-textMuted text-sm mt-2">Pandas, NumPy, scripts for ETL & modeling</p>
-                </div>
-                <div class="bg-bgCard p-6 rounded-lg text-center shadow-lg hover:bg-primary/10 transition transform hover:scale-105">
-                    <i class="fas fa-chart-line text-4xl text-yellow-400 mb-4"></i>
-                    <h3 class="text-xl font-semibold">Machine Learning</h3>
-                    <p class="text-textMuted text-sm mt-2">Regression, forecasting, evaluation & prototyping</p>
-                </div>
-                <div class="bg-bgCard p-6 rounded-lg text-center shadow-lg hover:bg-primary/10 transition transform hover:scale-105">
-                    <i class="fas fa-chart-bar text-4xl text-blue-500 mb-4"></i>
-                    <h3 class="text-xl font-semibold">Power BI / Looker Studio</h3>
-                    <p class="text-textMuted text-sm mt-2">Interactive dashboards, scheduled reports, KPI storytelling</p>
-                </div>
-                <div class="bg-bgCard p-6 rounded-lg text-center shadow-lg hover:bg-primary/10 transition transform hover:scale-105">
-                    <i class="fas fa-chart-pie text-4xl text-purple-400 mb-4"></i>
-                    <h3 class="text-xl font-semibold">Data Visualization</h3>
-                    <p class="text-textMuted text-sm mt-2">Dashboard design, A/B analysis, user metrics</p>
-                </div>
-                <div class="bg-bgCard p-6 rounded-lg text-center shadow-lg hover:bg-primary/10 transition transform hover:scale-105">
-                    <i class="fas fa-server text-4xl text-primary mb-4"></i>
-                    <h3 class="text-xl font-semibold">Real-time Monitoring</h3>
-                    <p class="text-textMuted text-sm mt-2">InfluxDB, Grafana, streaming KPIs</p>
-                </div>
-                <div class="bg-bgCard p-6 rounded-lg text-center shadow-lg hover:bg-primary/10 transition transform hover:scale-105">
-                    <i class="fas fa-code text-4xl text-green-400 mb-4"></i>
-                    <h3 class="text-xl font-semibold">APIs & Deployment</h3>
-                    <p class="text-textMuted text-sm mt-2">Flask, Streamlit, basic model serving</p>
-                </div>
-                <div class="bg-bgCard p-6 rounded-lg text-center shadow-lg hover:bg-primary/10 transition transform hover:scale-105">
-                    <i class="fab fa-git-alt text-4xl text-orange-400 mb-4"></i>
-                    <h3 class="text-xl font-semibold">Tools & Collaboration</h3>
-                    <p class="text-textMuted text-sm mt-2">Git, SSIS basics, Microsoft Fabric awareness, stakeholder comms</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ====================== EXPERIENCE ====================== -->
-    <section id="experience" class="bg-bgDark py-20">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Work Experience
-            </h2>
-            <div class="space-y-8">
-                <!-- Integrated Active Monitoring: mostly Data Analyst + ML demos -->
-                <div class="bg-bgCard p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-500 experience-card">
-                    <h3 class="text-2xl font-semibold">Data Analyst (primary) & Data Science (demo work) – Integrated Active Monitoring</h3>
-                    <p class="text-textMuted">Pune | Jan 2024 – Present</p>
-                    <ul class="list-disc list-inside text-textMuted mt-4 space-y-1">
-                        <li>Worked mainly as a Data Analyst — built ETL flows, created and maintained SQL-based data models to feed analytics and reporting.</li>
-                        <li>Designed operational dashboards in Power BI and Looker Studio to surface daily KPIs for operations and leadership.</li>
-                        <li>Implemented monitoring pipelines (InfluxDB + Grafana) for live telemetry and alerting.</li>
-                        <li>Developed small ML demos and prototypes (regression & short-term forecasting) to validate model usefulness for operations — handed off promising prototypes to engineering teams.</li>
-                        <li>Produced data-driven recommendations used by ops teams to prioritise actions and save costs.</li>
-                    </ul>
-                </div>
-
-                <!-- RajYug: Power BI, SSIS, basic ML, Microsoft Fabric familiarity -->
-                <div class="bg-bgCard p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-500 experience-card">
-                    <h3 class="text-2xl font-semibold">Data Science Intern – RajYug IT Solutions Pvt. Ltd.</h3>
-                    <p class="text-textMuted">Pune | Sept 2024 – Dec 2024</p>
-                    <ul class="list-disc list-inside text-textMuted mt-4 space-y-1">
-                        <li>Primarily worked on analytics and BI: built Power BI reports, created dashboards and stakeholder-facing reports.</li>
-                        <li>Worked with SSIS for scheduled ETL/ingestion tasks and basic data pipelines.</li>
-                        <li>Developed and evaluated simple ML models (classification/regression) as prototypes to support product features.</li>
-                        <li>Gained hands-on familiarity with Microsoft Fabric concepts and how Fabric can fit into BI + analytics workflows.</li>
-                    </ul>
-                </div>
-
-                <!-- Ybi Foundation: basic ML modeling projects -->
-                <div class="bg-bgCard p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-500 experience-card">
-                    <h3 class="text-2xl font-semibold">Data Analyst Intern – Ybi Foundation</h3>
-                    <p class="text-textMuted">Remote | May 2024 – July 2024</p>
-                    <ul class="list-disc list-inside text-textMuted mt-4 space-y-1">
-                        <li>Worked on data cleaning and preparation — normalized large program datasets using Pandas and SQL.</li>
-                        <li>Built basic ML models (linear regression, clustering) for churn and segmentation use-cases and evaluated model performance.</li>
-                        <li>Translated model outputs into actionable dashboards for program managers and summarized findings in clear reports.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ====================== PROJECTS ====================== -->
-    <section id="projects" class="bg-bgDark py-20">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                My Projects
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- project card samples (content tuned to balance Analyst/ML) -->
-                <div class="bg-bgCard p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-500 project-card">
-                    <img src="https://i.postimg.cc/V6833wVc/20250616-2311-EDA-Global-Terrorism-simple-compose-01jxwx7kdpetmbdjdd22at3qeb.png" alt="Global Terrorism EDA" class="w-full h-56 object-cover rounded-lg mb-4">
-                    <h3 class="text-2xl font-semibold mb-2">Global Terrorism Database — EDA & Reporting</h3>
-                    <p class="text-textMuted mb-4">Exploratory analysis of 180K+ incidents with dashboards, cross-tab reporting, and derived metrics for trend analysis (analyst-focused insights).</p>
-                    <a href="https://github.com/mandyhirphode/EDA_on_global_terrorism_data-" target="_blank" rel="noopener" class="text-primaryLt hover:underline">View Project</a>
-                </div>
-
-                <div class="bg-bgCard p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-500 project-card">
-                    <img src="https://i.postimg.cc/hvfn1mqX/20250614-2004-Movie-Recommender-System-simple-compose-01jxqdrbn7e4evxcvf1cy9k9cn.png" alt="Movie Recommender" class="w-full h-56 object-cover rounded-lg mb-4">
-                    <h3 class="text-2xl font-semibold mb-2">Movie Recommender System — Prototype & Dashboard</h3>
-                    <p class="text-textMuted mb-4">Content-based recommender with Streamlit + TMDB API; includes A/B logging and dashboard to track recommendation performance (ML + analytics).</p>
-                    <a href="https://github.com/mandyhirphode/movie_recommender_system" target="_blank" rel="noopener" class="text-primaryLt hover:underline">View Project</a>
-                </div>
-
-                <div class="bg-bgCard p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-500 project-card">
-                    <img src="https://i.postimg.cc/RF0xvthg/20250614-2008-Amazon-Sales-Analysis-simple-compose-01jxqdwnrhe06845r42gw6ybnn.png" alt="Amazon Sales" class="w-full h-56 object-cover rounded-lg mb-4">
-                    <h3 class="text-2xl font-semibold mb-2">Amazon Sales Analysis — Dashboards & Forecasts</h3>
-                    <p class="text-textMuted mb-4">Power BI dashboards plus short-term sales forecasting models to support promotion planning and inventory decisions (analytics + forecasting).</p>
-                    <a href="https://github.com/mandyhirphode/Amazon-Sales-Analysis-Dashboard" target="_blank" rel="noopener" class="text-primaryLt hover:underline">View Project</a>
-                </div>
-
-                <div class="bg-bgCard p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-500 project-card">
-                    <img src="https://i.postimg.cc/d13pbKNX/20250614-2146-Flipkart-Case-Study-simple-compose-01jxqkj2vjew0snay2h54vkn0r1.png" alt="Flipkart Case Study" class="w-full h-56 object-cover rounded-lg mb-4">
-                    <h3 class="text-2xl font-semibold mb-2">Flipkart Product Case Study — Schema & BI</h3>
-                    <p class="text-textMuted mb-4">Normalized schema design for product catalog + BI reporting; includes query-performance notes and dashboard wireframes (analyst + data-engineering focus).</p>
-                    <a href="https://github.com/mandyhirphode/Product-Dissection-Relational-Database" target="_blank" rel="noopener" class="text-primaryLt hover:underline">View Project</a>
-                </div>
-
-                <div class="bg-bgCard p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-500 project-card">
-                    <img src="https://i.postimg.cc/zDsDFdV5/20250614-2015-Google-Play-Store-Analysis-simple-compose-01jxqeaa2sexy9t0av7c3gnyec.png" alt="Google Play Store" class="w-full h-56 object-contain rounded-lg mb-4 bg-white">
-                    <h3 class="text-2xl font-semibold mb-2">Google Play Store — EDA + Model Insights</h3>
-                    <p class="text-textMuted mb-4">EDA and simple predictive models to identify features that improve ratings; dashboard tracks hypothesis tests and model lift (analytics + ML).</p>
-                    <a href="https://github.com/mandyhirphode/EDA-ON-PLAY-STORE" target="_blank" rel="noopener" class="text-primaryLt hover:underline">View Project</a>
-                </div>
-
-                <div class="bg-bgCard p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-500 project-card">
-                    <img src="https://i.postimg.cc/fyfwLsZK/20250614-2232-Car-Price-Prediction-simple-compose-01jxqp7jz1eh28qv0a5ffspz12.png" alt="Car Price Prediction" class="w-full h-56 object-cover rounded-lg mb-4">
-                    <h3 class="text-2xl font-semibold mb-2">Car Price Prediction — Model + Tooling</h3>
-                    <p class="text-textMuted mb-4">Linear regression model packaged into a Streamlit app with explanation panels and a mini-dashboard to monitor model errors (ML + analytics monitoring).</p>
-                    <a href="https://github.com/mandyhirphode/car_price_prediction" target="_blank" rel="noopener" class="text-primaryLt hover:underline">View Project</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ====================== CONTACT ====================== -->
-    <section id="contact" class="bg-bgDark py-20">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl font-bold mb-12 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Get in Touch
-            </h2>
-            <p class="text-lg mb-8 text-textMuted">Looking for someone who can deliver clean analytics and build production-ready models? Let's collaborate!</p>
-            <div class="flex flex-col md:flex-row justify-center gap-8 mb-8">
-                <a href="mailto:mandarhirphode@gmail.com" target="_blank" rel="noopener" class="text-primaryLt hover:underline">Email</a>
-                <a href="https://www.linkedin.com/in/mandar-hirphode" target="_blank" rel="noopener" class="text-primaryLt hover:underline">LinkedIn</a>
-                <a href="https://github.com/mandyhirphode" target="_blank" rel="noopener" class="text-primaryLt hover:underline">GitHub</a>
-                <a href="https://www.hackerrank.com/profile/mandarhirphode" target="_blank" rel="noopener" class="text-primaryLt hover:underline">HackerRank</a>
-                <a href="#" id="resume-link-footer" class="text-primaryLt hover:underline">Resume</a>
-            </div>
-            <div class="flex flex-col items-center gap-4 mb-12 text-textMuted">
-                <p>+91 9420662327</p>
-                <p>Pune, Maharashtra, India</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ====================== RESUME MODAL (Google Drive) ====================== -->
-    <div id="resume-modal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50">
-        <div class="bg-surface p-6 rounded-lg shadow-lg w-full max-w-4xl relative border-4 border-bgCard transform scale-95 opacity-0 modal-content">
-            <button id="close-modal" class="absolute top-4 right-4 text-textLight text-2xl hover:text-primary transition">
-                <i class="fas fa-times"></i>
-            </button>
-            <h2 class="text-2xl font-bold mb-4 text-center bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                My Resume
-            </h2>
-
-            <!-- *** FIXED PREVIEW URL *** -->
-            <iframe 
-                src="https://drive.google.com/file/d/14WgvYMFihv9O852dD6pLZJIDgXqHZavX/preview"
-                class="w-full h-[60vh] min-h-[400px] max-h-[600px] rounded-lg mb-4"
-                title="Mandar Hirphode Resume"
-                allow="autoplay">
-            </iframe>
-
-            <div class="text-center">
-                <a href="https://drive.google.com/uc?export=download&id=1oTvBxlGPYoLIdirqCGhryC9F9kxbuARC"
-                   download class="bg-primary text-white px-6 py-3 rounded-full font-semibold hover:bg-primaryLt transition">
-                    Download Resume
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- ====================== FOOTER ====================== -->
-    <footer class="bg-surface py-6">
-        <div class="container mx-auto px-6 text-center text-textMuted">
-            © 2025 Mandar Hirphode. Built with data-driven passion.
-        </div>
-    </footer>
-
-    <!-- ====================== SCRIPTS ====================== -->
-    <script>
-        // Hamburger Menu
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            mobileMenu.classList.toggle('-translate-y-full');
-            mobileMenu.classList.toggle('translate-y-0');
-            menuToggle.querySelector('i').classList.toggle('fa-bars');
-            menuToggle.querySelector('i').classList.toggle('fa-times');
-        });
-
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(a => {
-            a.addEventListener('click', e => {
-                if (!a.id.includes('resume-link')) {
-                    e.preventDefault();
-                    document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-                }
-                if (!mobileMenu.classList.contains('hidden')) menuToggle.click();
-            });
-        });
-
-        // Resume Modal
-        const resumeLinks = [document.getElementById('resume-link'), document.getElementById('resume-link-footer')];
-        const modal = document.getElementById('resume-modal');
-        const closeBtn = document.getElementById('close-modal');
-        const modalContent = modal.querySelector('.modal-content');
-
-        resumeLinks.forEach(l => l?.addEventListener('click', e => {
-            e.preventDefault();
-            modal.classList.remove('hidden');
-            document.body.classList.add('overflow-hidden');
-            gsap.to(modalContent, { scale: 1, opacity: 1, duration: 0.3, ease: 'power2.out' });
-        }));
-
-        closeBtn.addEventListener('click', () => {
-            gsap.to(modalContent, { scale: 0.95, opacity: 0, duration: 0.3, ease: 'power2.in', onComplete: () => {
-                modal.classList.add('hidden');
-                document.body.classList.remove('overflow-hidden');
-            }});
-        });
-        modal.addEventListener('click', e => e.target === modal && closeBtn.click());
-
-        // Typing Animation (balanced roles)
-        class TypedText {
-            constructor(el, arr, ts = 100, ds = 50, pt = 1500) {
-                this.el = el; this.arr = arr; this.ts = ts; this.ds = ds; this.pt = pt;
-                this.idx = 0; this.pos = 0; this.del = false; this.type();
-            }
-            type() {
-                const txt = this.arr[this.idx];
-                if (this.del) {
-                    this.el.textContent = txt.substring(0, this.pos);
-                    this.pos--;
-                    if (this.pos < 0) { this.del = false; this.idx = (this.idx + 1) % this.arr.length; setTimeout(() => this.type(), this.pt/2); }
-                    else setTimeout(() => this.type(), this.ds);
-                } else {
-                    this.el.textContent = txt.substring(0, this.pos + 1);
-                    this.pos++;
-                    if (this.pos === txt.length) { this.del = true; setTimeout(() => this.type(), this.pt); }
-                    else setTimeout(() => this.type(), this.ts);
-                }
-            }
-        }
-        new TypedText(document.getElementById('typed-text'),
-            ['Data Analyst', 'Data Scientist', 'BI & Dashboarding', 'ML Engineer', 'Real-time Monitoring']);
-
-        // Particle Network
-        class ParticleNetwork {
-            constructor(c) { this.c = c; this.ctx = c.getContext('2d'); this.p = []; this.n = innerWidth < 640 ? 30 : 50; this.init(); }
-            init() {
-                this.c.width = innerWidth; this.c.height = innerHeight;
-                for (let i = 0; i < this.n; i++) this.p.push({ x: Math.random() * this.c.width, y: Math.random() * this.c.height, vx: (Math.random() - 0.5) * 2, vy: (Math.random() - 0.5) * 2, r: 2 });
-                addEventListener('resize', () => { this.c.width = innerWidth; this.c.height = innerHeight; });
-                this.anim();
-            }
-            anim() {
-                this.ctx.clearRect(0, 0, this.c.width, this.c.height);
-                this.p.forEach(p => {
-                    p.x += p.vx; p.y += p.vy;
-                    if (p.x < 0 || p.x > this.c.width) p.vx *= -1;
-                    if (p.y < 0 || p.y > this.c.height) p.vy *= -1;
-                    this.ctx.beginPath(); this.ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-                    this.ctx.fillStyle = 'rgba(79,70,229,0.8)'; this.ctx.fill();
-                });
-                for (let i = 0; i < this.p.length; i++) for (let j = i + 1; j < this.p.length; j++) {
-                    const a = this.p[i], b = this.p[j], dx = b.x - a.x, dy = b.y - a.y, d = Math.hypot(dx, dy);
-                    if (d < 100) {
-                        this.ctx.beginPath(); this.ctx.moveTo(a.x, a.y); this.ctx.lineTo(b.x, b.y);
-                        this.ctx.strokeStyle = `rgba(124,58,237,${1 - d/100})`; this.ctx.stroke();
-                    }
-                }
-                requestAnimationFrame(() => this.anim());
-            }
-        }
-        new ParticleNetwork(document.getElementById('particle-canvas'));
-
-        // GSAP Animations
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.from('.animate-fade-in', { opacity: 0, duration: 1, ease: 'power2.out', stagger: 0.2 });
-        gsap.from('img[alt="Mandar Hirphode"]', { scale: 0.8, opacity: 0, duration: 1, delay: 0.5, ease: 'back.out(1.7)' });
-    </script>
-
-    <!-- ====================== STYLES ====================== -->
-    <style>
-        .live-wallpaper { background: linear-gradient(45deg, #4F46E5, #7C3AED, #4F46E5); background-size: 400% 400%; animation: gradientFlow 15s ease infinite; opacity: .8; }
-        @keyframes gradientFlow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-        @keyframes blob { 0%,100% { transform: translate(0,0) scale(1); } 33% { transform: translate(30px,-50px) scale(1.2); } 66% { transform: translate(-20px,20px) scale(.8); } }
-        .animate-blob { animation: blob 7s infinite; }
-        .animate-blink { animation: blink .7s step-end infinite; }
-        @keyframes blink { 0%,100% { border-color: transparent; } 50% { border-color: #4F46E5; } }
-        ::-webkit-scrollbar { width: 8px; } ::-webkit-scrollbar-track { background: #0F0F1A; } ::-webkit-scrollbar-thumb { background: #4F46E5; border-radius: 4px; } ::-webkit-scrollbar-thumb:hover { background: #7C3AED; }
-    </style>
+  <!-- STYLES -->
+  <style>
+    .animate-float { animation: float 6s ease-in-out infinite; }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+    ::-webkit-scrollbar{ width:8px } ::-webkit-scrollbar-track{ background:#0F0F1A } ::-webkit-scrollbar-thumb{ background:#4F46E5; border-radius:6px }
+  </style>
 </body>
 </html>
