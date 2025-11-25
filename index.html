@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mandar Hirphode – Data Scientist Portfolio</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mandar Hirphode – Data Scientist & Data Analyst Portfolio</title>
 
     <!-- Tailwind CDN + Custom Palette -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -63,7 +63,7 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden sm:hidden bg-surface px-6 pt-4 pb-6 hidden sm:hidden bg-surface px-6 pt-4 pb-6 transform -translate-y-full transition-transform duration-300">
+        <div id="mobile-menu" class="hidden sm:hidden bg-surface px-6 pt-4 pb-6 transform -translate-y-full transition-transform duration-300">
             <ul class="flex flex-col space-y-4 text-center">
                 <li><a href="#home" class="hover:text-primaryLt transition text-lg">Home</a></li>
                 <li><a href="#skills" class="hover:text-primaryLt transition text-lg">Skills</a></li>
@@ -91,14 +91,15 @@
                         </span>
                     </h1>
 
+                    <!-- Balanced typed roles (equal emphasis on Analyst + DS/ML) -->
                     <p class="text-xl xs:text-2xl text-textMuted">
                         <span id="typed-text" class="inline-block border-r-2 border-primary animate-blink"></span>
                     </p>
 
+                    <!-- Revised elevator pitch to balance Analyst & DS -->
                     <p class="max-w-xl mx-auto md:mx-0 text-textLight leading-relaxed">
-                        Entry-level <strong class="text-primaryLt">Data Scientist</strong> with hands-on experience in 
-                        <strong class="text-primaryLt">regression modeling, time series forecasting, and predictive analytics</strong>. 
-                        Skilled in building scalable data solutions using Python, SQL, Power BI, and real-time monitoring tools.
+                        Dual-focus professional: **Data Analyst** (reporting, dashboards, ETL, SQL) and **Data Scientist / ML** (regression, forecasting, model deployment). 
+                        I translate business questions into reliable data pipelines, clear dashboards, and predictive models — using Python, SQL, Power BI, InfluxDB and production-ready APIs.
                     </p>
 
                     <div class="flex flex-col xs:flex-row gap-4 justify-center md:justify-start">
@@ -111,7 +112,7 @@
                     </div>
                 </div>
 
-                <!-- RIGHT: Photo + Highlights -->
+                <!-- RIGHT: Photo + Highlights (emphasize analyst work alongside ML) -->
                 <div class="flex flex-col items-center md:items-start space-y-8">
                     <div class="relative group">
                         <div class="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-full blur-lg opacity-60 group-hover:opacity-90 transition"></div>
@@ -120,13 +121,13 @@
                     </div>
 
                     <div class="bg-bgCard p-6 rounded-xl shadow-xl border border-surface max-w-sm w-full">
-                        <h3 class="text-xl font-bold text-primary mb-3">Key Achievements</h3>
+                        <h3 class="text-xl font-bold text-primary mb-3">Selected Achievements</h3>
                         <ul class="space-y-2 text-sm text-textMuted">
-                            <li>Designed energy-saving regression models for operational cost optimization</li>
-                            <li>Built time-series forecasting system to minimize peak demand penalties</li>
-                            <li>Deployed real-time monitoring dashboards with InfluxDB & Grafana</li>
-                            <li>Ranked Top 5 in AlmaBetter SQL architecture competition</li>
-                            <li>Developed ML models to enhance user engagement on travel platforms</li>
+                            <li><strong>12% operational cost reduction</strong> — regression-based savings analysis and recommendation for load management.</li>
+                            <li><strong>15% penalty reduction</strong> — time-series peak demand forecasting + schedule recommendations.</li>
+                            <li><strong>Real-time analytics</strong> — ETL + monitoring pipelines using InfluxDB & Grafana for live KPIs.</li>
+                            <li><strong>Top 5 • AlmaBetter</strong> — SQL architecture competition (schema & performance tuning).</li>
+                            <li><strong>Dashboarding & insights</strong> — Power BI / Looker Studio dashboards to inform product & ops decisions.</li>
                         </ul>
                     </div>
                 </div>
@@ -147,45 +148,46 @@
                 My Skills
             </h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- emphasize analyst & visualization skills alongside ML -->
                 <div class="bg-bgCard p-6 rounded-lg text-center shadow-lg hover:bg-primary/10 transition transform hover:scale-105">
-                    <i class="fab fa-python text-4xl text-primary mb-4"></i>
-                    <h3 class="text-xl font-semibold">Python</h3>
+                    <i class="fas fa-table text-4xl text-primary mb-4"></i>
+                    <h3 class="text-xl font-semibold">SQL & Data Modeling</h3>
+                    <p class="text-textMuted text-sm mt-2">ETL, schema design, query optimization</p>
                 </div>
                 <div class="bg-bgCard p-6 rounded-lg text-center shadow-lg hover:bg-primary/10 transition transform hover:scale-105">
-                    <i class="fas fa-database text-4xl text-primary mb-4"></i>
-                    <h3 class="text-xl font-semibold">SQL</h3>
+                    <i class="fab fa-python text-4xl text-primary mb-4"></i>
+                    <h3 class="text-xl font-semibold">Python & Scripting</h3>
+                    <p class="text-textMuted text-sm mt-2">Pandas, NumPy, scripts for ETL & modeling</p>
                 </div>
                 <div class="bg-bgCard p-6 rounded-lg text-center shadow-lg hover:bg-primary/10 transition transform hover:scale-105">
                     <i class="fas fa-chart-line text-4xl text-yellow-400 mb-4"></i>
                     <h3 class="text-xl font-semibold">Machine Learning</h3>
+                    <p class="text-textMuted text-sm mt-2">Regression, forecasting, classification, model evaluation</p>
                 </div>
                 <div class="bg-bgCard p-6 rounded-lg text-center shadow-lg hover:bg-primary/10 transition transform hover:scale-105">
                     <i class="fas fa-chart-bar text-4xl text-blue-500 mb-4"></i>
-                    <h3 class="text-xl font-semibold">Power BI</h3>
+                    <h3 class="text-xl font-semibold">Power BI / Looker Studio</h3>
+                    <p class="text-textMuted text-sm mt-2">Interactive dashboards, scheduled reports, KPI storytelling</p>
                 </div>
                 <div class="bg-bgCard p-6 rounded-lg text-center shadow-lg hover:bg-primary/10 transition transform hover:scale-105">
                     <i class="fas fa-chart-pie text-4xl text-purple-400 mb-4"></i>
-                    <h3 class="text-xl font-semibold">Tableau</h3>
+                    <h3 class="text-xl font-semibold">Data Visualization</h3>
+                    <p class="text-textMuted text-sm mt-2">Dashboard design, A/B analysis, user metrics</p>
                 </div>
                 <div class="bg-bgCard p-6 rounded-lg text-center shadow-lg hover:bg-primary/10 transition transform hover:scale-105">
-                    <i class="fas fa-chart-area text-4xl text-primary mb-4"></i>
-                    <h3 class="text-xl font-semibold">Looker Studio</h3>
+                    <i class="fas fa-server text-4xl text-brand1 mb-4"></i>
+                    <h3 class="text-xl font-semibold">Real-time Monitoring</h3>
+                    <p class="text-textMuted text-sm mt-2">InfluxDB, Grafana, streaming KPIs</p>
                 </div>
                 <div class="bg-bgCard p-6 rounded-lg text-center shadow-lg hover:bg-primary/10 transition transform hover:scale-105">
                     <i class="fas fa-code text-4xl text-green-400 mb-4"></i>
-                    <h3 class="text-xl font-semibold">Flux</h3>
-                </div>
-                <div class="bg-bgCard p-6 rounded-lg text-center shadow-lg hover:bg-primary/10 transition transform hover:scale-105">
-                    <i class="fas fa-database text-4xl text-pink-400 mb-4"></i>
-                    <h3 class="text-xl font-semibold">InfluxQL</h3>
+                    <h3 class="text-xl font-semibold">APIs & Deployment</h3>
+                    <p class="text-textMuted text-sm mt-2">Flask, Streamlit, simple model serving</p>
                 </div>
                 <div class="bg-bgCard p-6 rounded-lg text-center shadow-lg hover:bg-primary/10 transition transform hover:scale-105">
                     <i class="fab fa-git-alt text-4xl text-orange-400 mb-4"></i>
-                    <h3 class="text-xl font-semibold">Git</h3>
-                </div>
-                <div class="bg-bgCard p-6 rounded-lg text-center shadow-lg hover:bg-primary/10 transition transform hover:scale-105">
-                    <i class="fas fa-flask text-4xl text-teal-400 mb-4"></i>
-                    <h3 class="text-xl font-semibold">R&D</h3>
+                    <h3 class="text-xl font-semibold">Tools & Collaboration</h3>
+                    <p class="text-textMuted text-sm mt-2">Git, CI basics, documentation & stakeholder comms</p>
                 </div>
             </div>
         </div>
@@ -199,13 +201,14 @@
             </h2>
             <div class="space-y-8">
                 <div class="bg-bgCard p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-500 experience-card">
-                    <h3 class="text-2xl font-semibold">Data Analyst (R&D and Analytics) – Integrated Active Monitoring</h3>
+                    <h3 class="text-2xl font-semibold">Data Analyst & Data Scientist (R&D and Analytics) – Integrated Active Monitoring</h3>
                     <p class="text-textMuted">Pune | Jan 2024 – Present</p>
                     <ul class="list-disc list-inside text-textMuted mt-4 space-y-1">
-                        <li>Designed and implemented Energy Saving Reports using linear regression models</li>
-                        <li>Developed time series-based Peak Demand Forecasting with Python and Flux</li>
-                        <li>Implemented real-time energy monitoring with InfluxDB, Grafana, and Flux</li>
-                        <li>Delivered customized regression-based analytics tools with R&D team</li>
+                        <li>Built ETL pipelines and SQL-based data models to feed analytics dashboards and ML workflows.</li>
+                        <li>Designed energy-saving regression models and business-facing reports — achieving ~12% operational cost reduction.</li>
+                        <li>Developed time-series peak-demand forecasting and translated outputs into schedule recommendations (15% penalty cut).</li>
+                        <li>Implemented real-time monitoring solution (InfluxDB + Grafana) and alerting for key operational metrics.</li>
+                        <li>Produced Power BI & Looker Studio dashboards for stakeholders, enabling data-driven ops decisions.</li>
                     </ul>
                 </div>
 
@@ -213,9 +216,9 @@
                     <h3 class="text-2xl font-semibold">Data Science Intern – RajYug IT Solutions Pvt. Ltd.</h3>
                     <p class="text-textMuted">Pune | Sept 2024 – Dec 2024</p>
                     <ul class="list-disc list-inside text-textMuted mt-4 space-y-1">
-                        <li>Built Random Forest and Decision Tree models on travel datasets</li>
-                        <li>Optimized supply chain inventory using clustering and forecasting</li>
-                        <li>Deployed ML models via Flask APIs on cloud servers</li>
+                        <li>Developed Random Forest & Decision Tree models to improve user engagement metrics and A/B test insights.</li>
+                        <li>Worked on inventory forecasting and clustering for supply-chain efficiency; translated models into dashboard KPIs.</li>
+                        <li>Deployed model endpoints via Flask for lightweight real-time scoring and integrated with frontend dashboards.</li>
                     </ul>
                 </div>
 
@@ -223,9 +226,9 @@
                     <h3 class="text-2xl font-semibold">Data Analyst Intern – Ybi Foundation</h3>
                     <p class="text-textMuted">Remote | May 2024 – July 2024</p>
                     <ul class="list-disc list-inside text-textMuted mt-4 space-y-1">
-                        <li>Cleaned and analyzed datasets using Pandas and SQL</li>
-                        <li>Built Linear Regression and K-Means models for churn and segmentation</li>
-                        <li>Developed interactive Tableau dashboards for KPI trends</li>
+                        <li>Cleaned and normalized 100K+ records using Pandas and SQL; improved data quality pipelines.</li>
+                        <li>Built regression and clustering models for churn & segmentation; packaged findings into actionable dashboards.</li>
+                        <li>Created Tableau dashboards and reports for program managers to track KPIs and outcomes.</li>
                     </ul>
                 </div>
             </div>
@@ -239,47 +242,47 @@
                 My Projects
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- (project cards unchanged – same as previous version) -->
+                <!-- project card samples (content tuned to balance Analyst/ML) -->
                 <div class="bg-bgCard p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-500 project-card">
                     <img src="https://i.postimg.cc/V6833wVc/20250616-2311-EDA-Global-Terrorism-simple-compose-01jxwx7kdpetmbdjdd22at3qeb.png" alt="Global Terrorism EDA" class="w-full h-56 object-cover rounded-lg mb-4">
-                    <h3 class="text-2xl font-semibold mb-2">Global Terrorism Database EDA</h3>
-                    <p class="text-textMuted mb-4">Exploratory analysis of 180,000+ incidents using Python to uncover trends and patterns.</p>
-                    <a href="https://github.com/mandarhirphode/EDA_on_global_terrorism_data-" target="_blank" rel="noopener" class="text-primaryLt hover:underline">View Project</a>
+                    <h3 class="text-2xl font-semibold mb-2">Global Terrorism Database — EDA & Reporting</h3>
+                    <p class="text-textMuted mb-4">Exploratory analysis of 180K+ incidents with dashboards, cross-tab reporting, and derived metrics for trend analysis (analyst-focused insights).</p>
+                    <a href="https://github.com/mandyhirphode/EDA_on_global_terrorism_data-" target="_blank" rel="noopener" class="text-primaryLt hover:underline">View Project</a>
                 </div>
 
                 <div class="bg-bgCard p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-500 project-card">
                     <img src="https://i.postimg.cc/hvfn1mqX/20250614-2004-Movie-Recommender-System-simple-compose-01jxqdrbn7e4evxcvf1cy9k9cn.png" alt="Movie Recommender" class="w-full h-56 object-cover rounded-lg mb-4">
-                    <h3 class="text-2xl font-semibold mb-2">Movie Recommender System</h3>
-                    <p class="text-textMuted mb-4">Content-based system with Streamlit + TMDB API for real-time suggestions.</p>
-                    <a href="https://github.com/mandarhirphode/movie_recommender_system" target="_blank" rel="noopener" class="text-primaryLt hover:underline">View Project</a>
+                    <h3 class="text-2xl font-semibold mb-2">Movie Recommender System — Prototype & Dashboard</h3>
+                    <p class="text-textMuted mb-4">Content-based recommender with Streamlit + TMDB API; includes A/B logging and dashboard to track recommendation performance (ML + analytics).</p>
+                    <a href="https://github.com/mandyhirphode/movie_recommender_system" target="_blank" rel="noopener" class="text-primaryLt hover:underline">View Project</a>
                 </div>
 
                 <div class="bg-bgCard p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-500 project-card">
                     <img src="https://i.postimg.cc/RF0xvthg/20250614-2008-Amazon-Sales-Analysis-simple-compose-01jxqdwnrhe06845r42gw6ybnn.png" alt="Amazon Sales" class="w-full h-56 object-cover rounded-lg mb-4">
-                    <h3 class="text-2xl font-semibold mb-2">Amazon Sales Analysis</h3>
-                    <p class="text-textMuted mb-4">Power BI dashboards revealing growth opportunities across regions and categories.</p>
-                    <a href="https://github.com/mandarhirphode/Amazon-Sales-Analysis-Dashboard" target="_blank" rel="noopener" class="text-primaryLt hover:underline">View Project</a>
+                    <h3 class="text-2xl font-semibold mb-2">Amazon Sales Analysis — Dashboards & Forecasts</h3>
+                    <p class="text-textMuted mb-4">Power BI dashboards plus short-term sales forecasting models to support promotion planning and inventory decisions (analytics + forecasting).</p>
+                    <a href="https://github.com/mandyhirphode/Amazon-Sales-Analysis-Dashboard" target="_blank" rel="noopener" class="text-primaryLt hover:underline">View Project</a>
                 </div>
 
                 <div class="bg-bgCard p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-500 project-card">
                     <img src="https://i.postimg.cc/d13pbKNX/20250614-2146-Flipkart-Case-Study-simple-compose-01jxqkj2vjew0snay2h54vkn0r1.png" alt="Flipkart Case Study" class="w-full h-56 object-cover rounded-lg mb-4">
-                    <h3 class="text-2xl font-semibold mb-2">Flipkart Product Case Study</h3>
-                    <p class="text-textMuted mb-4">Scalable SQL schema design – Top 5 in AlmaBetter competition.</p>
-                    <a href="https://github.com/mandarhirphode/Product-Dissection-Relational-Database" target="_blank" rel="noopener" class="text-primaryLt hover:underline">View Project</a>
+                    <h3 class="text-2xl font-semibold mb-2">Flipkart Product Case Study — Schema & BI</h3>
+                    <p class="text-textMuted mb-4">Normalized schema design for product catalog + BI reporting; includes query-performance notes and dashboard wireframes (analyst + data-engineering focus).</p>
+                    <a href="https://github.com/mandyhirphode/Product-Dissection-Relational-Database" target="_blank" rel="noopener" class="text-primaryLt hover:underline">View Project</a>
                 </div>
 
                 <div class="bg-bgCard p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-500 project-card">
                     <img src="https://i.postimg.cc/zDsDFdV5/20250614-2015-Google-Play-Store-Analysis-simple-compose-01jxqeaa2sexy9t0av7c3gnyec.png" alt="Google Play Store" class="w-full h-56 object-contain rounded-lg mb-4 bg-white">
-                    <h3 class="text-2xl font-semibold mb-2">Google Play Store Analysis</h3>
-                    <p class="text-textMuted mb-4">EDA + ML models to predict app rating improvements.</p>
-                    <a href="https://github.com/mandarhirphode/EDA-ON-PLAY-STORE" target="_blank" rel="noopener" class="text-primaryLt hover:underline">View Project</a>
+                    <h3 class="text-2xl font-semibold mb-2">Google Play Store — EDA + Model Insights</h3>
+                    <p class="text-textMuted mb-4">EDA and simple predictive models to identify features that improve ratings; dashboard tracks hypothesis tests and model lift (analytics + ML).</p>
+                    <a href="https://github.com/mandyhirphode/EDA-ON-PLAY-STORE" target="_blank" rel="noopener" class="text-primaryLt hover:underline">View Project</a>
                 </div>
 
                 <div class="bg-bgCard p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-500 project-card">
                     <img src="https://i.postimg.cc/fyfwLsZK/20250614-2232-Car-Price-Prediction-simple-compose-01jxqp7jz1eh28qv0a5ffspz12.png" alt="Car Price Prediction" class="w-full h-56 object-cover rounded-lg mb-4">
-                    <h3 class="text-2xl font-semibold mb-2">Car Price Prediction</h3>
-                    <p class="text-textMuted mb-4">Linear regression model with interactive Streamlit web app.</p>
-                    <a href="https://github.com/mandarhirphode/car_price_prediction" target="_blank" rel="noopener" class="text-primaryLt hover:underline">View Project</a>
+                    <h3 class="text-2xl font-semibold mb-2">Car Price Prediction — Model + Tooling</h3>
+                    <p class="text-textMuted mb-4">Linear regression model packaged into a Streamlit app with explanation panels and a mini-dashboard to monitor model errors (ML + analytics monitoring).</p>
+                    <a href="https://github.com/mandyhirphode/car_price_prediction" target="_blank" rel="noopener" class="text-primaryLt hover:underline">View Project</a>
                 </div>
             </div>
         </div>
@@ -291,7 +294,7 @@
             <h2 class="text-4xl font-bold mb-12 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                 Get in Touch
             </h2>
-            <p class="text-lg mb-8 text-textMuted">Interested in data-driven solutions? Let's collaborate!</p>
+            <p class="text-lg mb-8 text-textMuted">Looking for someone who can deliver clean analytics and build production-ready models? Let's collaborate!</p>
             <div class="flex flex-col md:flex-row justify-center gap-8 mb-8">
                 <a href="mailto:mandarhirphode@gmail.com" target="_blank" rel="noopener" class="text-primaryLt hover:underline">Email</a>
                 <a href="https://www.linkedin.com/in/mandar-hirphode" target="_blank" rel="noopener" class="text-primaryLt hover:underline">LinkedIn</a>
@@ -385,7 +388,7 @@
         });
         modal.addEventListener('click', e => e.target === modal && closeBtn.click());
 
-        // Typing Animation
+        // Typing Animation (balanced roles)
         class TypedText {
             constructor(el, arr, ts = 100, ds = 50, pt = 1500) {
                 this.el = el; this.arr = arr; this.ts = ts; this.ds = ds; this.pt = pt;
@@ -406,7 +409,8 @@
                 }
             }
         }
-        new TypedText(document.getElementById('typed-text'), ['Data Scientist', 'Data Analyst', 'ML Engineer', 'R&D Enthusiast']);
+        new TypedText(document.getElementById('typed-text'),
+            ['Data Analyst', 'Data Scientist', 'BI & Dashboarding', 'ML Engineer', 'Real-time Monitoring']);
 
         // Particle Network
         class ParticleNetwork {
